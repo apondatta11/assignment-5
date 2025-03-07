@@ -1,7 +1,7 @@
 const buttons = document.getElementsByClassName("button");
 let count = 0;
 let cardcount1=document.getElementsByClassName("card").length;
-let cardcount2=cardcount1 = cardcount1 < 10 ? '0' + cardcount1 : cardcount1;
+let cardcount2= cardcount1 < 10 ? '0' + cardcount1 : cardcount1;
 const div2= document.createElement('div');
 div2.innerHTML=`
 <h5 id="task-remaining" class="font-bold text-2xl">${cardcount2}</h5>
@@ -16,6 +16,7 @@ for (let button of buttons) {
         const task = document.getElementById("lomba-card");
         total++;
         remain--;
+        remain=remain < 10 ? '0' + remain : remain;
         count++;
 
         const div = document.createElement('div');
@@ -32,7 +33,7 @@ for (let button of buttons) {
         seconds = seconds < 10 ? '0' + seconds : seconds;
         let myTime = hours + ":" + minutes + ":" + seconds + " " + ampm;
 
-        if (count <= 6) {
+        if (count <= cardcount1) {
             alert("Board Updated Successfully")
             setInnerTextByIDandValue("total-task", total);
             setInnerTextByIDandValue("task-remaining", remain);
@@ -44,8 +45,8 @@ for (let button of buttons) {
             task.appendChild(div);
             button.disabled='true';
         }
-        if(count===6){
-            alert("You Have Completed All the Tasks")
+        if(count===cardcount1){
+            alert("Congrats!!!! You Have Completed all the current Tasks")
         }
     });
 }
