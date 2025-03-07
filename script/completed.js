@@ -1,7 +1,7 @@
 const buttons = document.getElementsByClassName("button");
 let count = 0;
 let cardcount1=document.getElementsByClassName("card").length;
-let cardcount2= cardcount1 < 10 ? '0' + cardcount1 : cardcount1;
+let cardcount2= cardcount1 < 10 && cardcount1>0? '0' + cardcount1 : cardcount1;
 const div2= document.createElement('div');
 div2.innerHTML=`
 <h5 id="task-remaining" class="font-bold text-2xl">${cardcount2}</h5>
@@ -16,7 +16,7 @@ for (let button of buttons) {
         const task = document.getElementById("lomba-card");
         total++;
         remain--;
-        remain=remain < 10 ? '0' + remain : remain;
+        remain=remain < 10  && remain>0 ? '0' + remain : remain;
         count++;
 
         const div = document.createElement('div');
