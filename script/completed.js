@@ -2,15 +2,14 @@ const buttons = document.getElementsByClassName("button");
 let count = 0;
 let cardcount1=document.getElementsByClassName("card").length;
 let cardcount2=cardcount1 = cardcount1 < 10 ? '0' + cardcount1 : cardcount1;
-// setInnerTextByIDandValue("task-remaining", cardcount);
 const div2= document.createElement('div');
 div2.innerHTML=`
 <h5 id="task-remaining" class="font-bold text-2xl">${cardcount2}</h5>
 `
 document.getElementById("ta-re").appendChild(div2);
+
 for (let button of buttons) {
-    button.addEventListener("click", function (event) {
-        event.preventDefault();
+    button.addEventListener("click", function () {
         const title = button.parentNode.parentNode.querySelector(".card-title").innerText;
         let total = getInputValueByID("total-task");
         let remain = getInputValueByID("task-remaining");
@@ -44,8 +43,6 @@ for (let button of buttons) {
         `
             task.appendChild(div);
             button.disabled='true';
-            console.log(count);
-
         }
         if(count===6){
             alert("You Have Completed All the Tasks")
@@ -55,7 +52,7 @@ for (let button of buttons) {
 document.getElementById("history").addEventListener('click', function () {
     const elements = document.getElementsByClassName("nd");
     while (elements.length > 0) {
-        elements[0].remove(); // Remove the first element in the collection until empty
+        elements[0].remove();
     }
 })
 let date = new Date();
